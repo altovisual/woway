@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>WOWAY BLACK - Isla Mujeres</title>
+  <g id="solid-primary" fill="#0A0A0A" stroke="none">
+    <path fill-rule="evenodd" d="M 14 20 L 26 20 L 29 26 L 17 26 Z M 12 28 L 40 28 L 47 36 L 8 36 Z M 18 30.5 L 25 30.5 L 26.5 33.5 L 18 33.5 Z M 29 30.5 L 37 30.5 L 39.5 33.5 L 29 33.5 Z M 6 39 L 59 39 C 56 47 49 51 39 51 L 11 51 Z M 14 42.5 L 48 42.5 L 46.5 44.8 L 14 44.8 Z"/>
+    <path d="M 6 54 C 12 54 15 52 20 52 C 25 52 28 54 33 54 C 38 54 41 52 46 52 C 51 52 54 54 58 54 L 58 57.5 L 6 57.5 Z"/>
+  </g>
+  <g id="solid-accent" fill="#C60B11" stroke="#C60B11">
+    <path d="M 16 14 L 25 14 L 23 18.5 L 18 18.5 Z"/>
+  </g>
+</svg>

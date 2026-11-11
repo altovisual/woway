@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>WOWAY BLACK - Riviera Maya</title>
+  <g id="solid-primary" fill="#0A0A0A" stroke="none">
+    <path d="M 14 58 C 14 44 16 32 20 20 L 24 20 C 20.5 32 19 44 19 58 Z M 21 19 C 14 14 7 16 4 22 C 9 20 15 20 21 21 Z M 21 18 C 16 10 9 9 5 13 C 11 13 16 15 21 19 Z M 22 18 C 21 10 25 6 31 7 C 27 10 24 14 23 19 Z M 23 19 C 28 14 34 15 37 20 C 32 19 27 19 23 21 Z"/>
+    <path d="M 50 58 C 50 44 48 32 44 20 L 40 20 C 43.5 32 45 44 45 58 Z M 43 19 C 50 14 57 16 60 22 C 55 20 49 20 43 21 Z M 43 18 C 48 10 55 9 59 13 C 53 13 48 15 43 19 Z M 42 18 C 43 10 39 6 33 7 C 37 10 40 14 41 19 Z"/>
+    <rect x="8" y="55" width="48" height="3.5" rx="1.7"/>
+  </g>
+  <g id="solid-accent" fill="#C60B11" stroke="#C60B11">
+    <path fill-rule="evenodd" d="M 17 38 C 24 43 40 43 47 38 C 44 48 39 52 32 52 C 25 52 20 48 17 38 Z M 25 43.5 L 27.5 41.5 L 30 43.5 L 27.5 45.5 Z M 32 44 L 34.5 42 L 37 44 L 34.5 46 Z M 28.5 47 L 31 45 L 33.5 47 L 31 49 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>WOWAY BLACK - Envíos y devoluciones</title>
+  <g id="solid-primary" fill="#0A0A0A" stroke="none">
+    <path fill-rule="evenodd" d="M 23 12 C 23 8.7 25.7 6 29 6 L 35 6 C 38.3 6 41 8.7 41 12 L 41 15 L 37 15 L 37 12 C 37 10.9 36.1 10 35 10 L 29 10 C 27.9 10 27 10.9 27 12 L 27 15 L 23 15 Z M 8 21 C 8 17.7 10.7 15 14 15 L 17 15 L 17 55 L 14 55 C 10.7 55 8 52.3 8 49 Z M 47 15 L 50 15 C 53.3 15 56 17.7 56 21 L 56 49 C 56 52.3 53.3 55 50 55 L 47 55 Z M 20 15 L 44 15 L 44 55 L 20 55 Z M 34 25 L 39 30 L 34 35 L 34 31.8 L 25 31.8 L 25 28.2 L 34 28.2 Z M 30 35 L 25 40 L 30 45 L 30 41.8 L 39 41.8 L 39 38.2 L 30 38.2 Z"/>
+  </g>
+  <g id="solid-accent" fill="#C60B11" stroke="#C60B11">
+    <rect x="13" y="55" width="5" height="3" rx="1"/>
+    <rect x="46" y="55" width="5" height="3" rx="1"/>
+  </g>
+</svg>

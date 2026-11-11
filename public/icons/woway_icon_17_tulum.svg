@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>WOWAY BLACK - Tulum</title>
+  <g id="solid-primary" fill="#0A0A0A" stroke="none">
+    <path fill-rule="evenodd" d="M 8 20 L 28 20 L 30 33 L 6 33 Z M 12 13 L 24 13 L 24 18.5 L 12 18.5 Z M 16 24 L 20 24 L 20 33 L 16 33 Z M 4 35 L 34 35 L 40 46 L 4 46 Z M 6 49 L 58 49 L 58 52.5 L 6 52.5 Z M 12 55 L 54 55 L 54 58 L 12 58 Z"/>
+    <path d="M 49 46 C 49 34 47 24 43 15 L 46.5 15 C 50 24 52.5 34 52.5 46 Z M 44 15 C 37 11 31 13 29 18 C 34 16 39 16 44 17 Z M 45 14 C 41 7 35 6 31 10 C 36 10 41 12 45 15 Z M 46 14 C 49 8 55 8 59 12 C 54 11 49 12 46 15 Z M 46 16 C 52 13 57 15 60 20 C 55 18 50 18 46 18 Z"/>
+  </g>
+  <g id="solid-accent" fill="#C60B11" stroke="#C60B11">
+    <circle cx="39" cy="31" r="5"/>
+  </g>
+</svg>

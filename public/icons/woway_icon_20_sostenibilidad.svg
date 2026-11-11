@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>WOWAY BLACK - Sostenibilidad</title>
+  <g id="solid-primary" fill="#0A0A0A" stroke="none">
+    <path fill-rule="evenodd" d="M 32 6 C 46.4 6 58 17.6 58 32 C 58 46.4 46.4 58 32 58 C 17.6 58 6 46.4 6 32 C 6 17.6 17.6 6 32 6 Z M 32 11.5 C 20.7 11.5 11.5 20.7 11.5 32 C 11.5 43.3 20.7 52.5 32 52.5 C 43.3 52.5 52.5 43.3 52.5 32 C 52.5 20.7 43.3 11.5 32 11.5 Z M 20 43 C 19 27 29 17 45 17 C 45 33 35 43 20 43 Z M 22.5 40.5 L 38 25 L 39.8 26.8 L 24.3 42.3 Z M 29 34 L 29 27.5 L 31.2 27.5 L 31.2 31.8 Z M 34 31.2 L 40.5 31.2 L 40.5 33.4 L 31.8 33.4 Z"/>
+  </g>
+  <g id="solid-accent" fill="#C60B11" stroke="#C60B11">
+    <circle cx="21" cy="21" r="2.5"/>
+  </g>
+</svg>

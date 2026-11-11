@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <title>WOWAY BLACK - Isotipo / Icono</title>
+  <!-- Fondo de Icono Premium -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="#0F0F12" />
+  <!-- Anillo Power-O Característico de WOWAY -->
+  <path id="isotipo-power-o" fill="#FFFFFF" fill-rule="evenodd" d="M 267.00 88.39 A 142.00 130.00 0 1 1 245.00 88.39 L 245.00 179.54 A 40.00 40.00 0 1 0 267.00 179.54 Z" />
+  <!-- Barra Roja de Acento BLACK y Punto Rojo -->
+  <rect id="isotipo-red-bar" x="126" y="392" width="224" height="22" rx="4" fill="#C60B11" />
+  <circle id="isotipo-red-dot" cx="375" cy="403" r="11" fill="#C60B11" />
+</svg>

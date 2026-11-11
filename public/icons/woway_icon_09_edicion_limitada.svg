@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>WOWAY BLACK - Edición limitada</title>
+  <g id="solid-primary" fill="#0A0A0A" stroke="none">
+    <path d="M 16 10 L 25 10 L 21 21 L 7 21 Z M 28 10 L 36 10 L 40 21 L 24 21 Z M 39 10 L 48 10 L 57 21 L 43 21 Z M 7 24 L 21.5 24 L 29.5 55 Z M 42.5 24 L 57 24 L 34.5 55 Z"/>
+  </g>
+  <g id="solid-accent" fill="#C60B11" stroke="#C60B11">
+    <polygon points="24.5,24 39.5,24 32,56"/>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+hero-beach	1091935	dronepicr	CC BY 2.0	Cancun beach aerial - Luftbild (19853298089).jpg
+about-textile: no candidate
+pkg-cancun	625245	Monica Wong from New York City, NY, United States	CC BY 2.0	Beach at Cancun Caribe Park Royal Grand Hotel & Resort.jpg
+pkg-riviera: image HTTP 403
+pkg-isla	680182	Christine Zenino from Chicago, US	CC BY 2.0	Isla Mujeres (3256254117).jpg
+pkg-cenotes	4176433	Dmadeo	CC BY-SA 3.0	Cenote-ik-kil.png
+pkg-tulum	950638	Carlos Delgado	CC BY-SA 3.0	Tulum - 01.jpg
+pkg-signature	238205	Alvesgaspar	CC BY-SA 3.0	Silverfish 2007-2.jpg
+prod-tee	1235443	Donald Trung	CC BY-SA 4.0	Oet Grunn Groninger provincial flag White T-shirt 03.jpg
+prod-tee-sunset: image HTTP 403
+prod-cap	416031	Paracord e.K.	CC BY-SA 4.0	Baseball Cap PaRacorD ®.jpg
+prod-cap-black: image HTTP 403
+prod-hoodie: image HTTP 403
+prod-tee-limited	1229955	Rwebogora	CC BY-SA 4.0	Drying up printed T-shirts.jpg
+prod-tote	974261	Jacklee.	CC BY-SA 4.0	Canvas tote bag from Books & Books, Miami, Florida, USA - 20130912.jpg
+prod-bottle	432562	Sjennings2	CC BY-SA 4.0	Waterbottle.jpg
+prod-passport	2035350	unknown	Public domain	Leather passport holder - DPLA - b03041bf4866ab57b22cf5868254e1aa (page 1).jpg
+prod-drybag: no candidate
+prod-towel: image HTTP 403
+prod-stickers: no candidate
