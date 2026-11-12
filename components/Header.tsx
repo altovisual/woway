@@ -117,7 +117,9 @@ export function Header({ overHero }: { overHero?: boolean }) {
         </Link>
 
         <nav className="nav" aria-label="Principal">
-          {navigation.map((item) =>
+          {[...navigation]
+            .sort((a, b) => (a.label === "Paquetes" ? -1 : 0) - (b.label === "Paquetes" ? -1 : 0))
+            .map((item) =>
             item.columns ? (
               <div
                 className="nav__item"

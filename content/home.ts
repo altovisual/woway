@@ -1,34 +1,34 @@
 export const hero = {
-  eyebrow: "Merchandise & lifestyle · Cancún",
-  headline: "No solo formas parte del viaje. Formas parte del estilo de vida.",
+  eyebrow: "Experiencias privadas · Cancún",
+  headline: "Cancún sin filas, sin taxis compartidos, sin sorpresas.",
   subhead:
-    "Apparel y accesorios propios, y experiencias en el Caribe mexicano. Piezas que te pones en la playa y sigues usando cuando vuelves.",
-  primary: { label: "Ver la colección", href: "/shop" },
-  secondary: { label: "Explorar paquetes", href: "/packages" },
-  note: "Envíos a todo México y EE. UU. · Recogida en hotel · Entrega en experiencias",
+    "Traslados privados, tours, cenotes y yates en el Caribe mexicano. Tú eliges la fecha y los viajeros; nosotros nos encargamos del resto.",
+  primary: { label: "Explorar paquetes", href: "/packages" },
+  secondary: { label: "Hablar con un asesor", href: "/contact-us" },
+  note: "Pago en MXN o USD · anticipo 10% · cancelación flexible",
 };
 
 export const destinations = ["Cancún", "Riviera Maya", "Isla Mujeres", "Tulum", "Cozumel", "Valladolid"];
 
 export const pillars = [
   {
-    title: "Apparel",
-    body: "Camisetas, gorras y capas de algodón pesado con la identidad de la marca, pensadas para el calor y para durar.",
+    title: "Traslados privados",
+    body: "Aeropuerto, hotel y ciudad en vehículo propio con chofer bilingüe. Sedán, SUV o Sprinter según el grupo.",
     icon: "layers",
   },
   {
-    title: "Branded accessories",
-    body: "Totes, botellas, fundas y dry bags: objetos de uso cotidiano que también funcionan de verdad en un viaje.",
+    title: "Tours y cultura",
+    body: "Chichén Itzá, Tulum y cenotes con guía certificado, entradas y comida incluidas.",
     icon: "shield",
   },
   {
-    title: "Ediciones especiales",
-    body: "Series cortas, numeradas y colaboraciones con artistas de la península. Cuando se agotan, se agotan.",
+    title: "Mar y yates",
+    body: "Catamaranes, jet ski y yates privados con tripulación, snorkel y barra a bordo.",
     icon: "spark",
   },
   {
-    title: "Customer rewards",
-    body: "Merchandising como obsequio: bienvenida, paquetes seleccionados, clientes recurrentes y atención VIP.",
+    title: "Concierge",
+    body: "Un solo WhatsApp para mover fechas, añadir extras o resolver un imprevisto el mismo día.",
     icon: "ledger",
   },
 ];
@@ -52,8 +52,8 @@ export const stats = [
 
 export const collections = {
   eyebrow: "La colección",
-  title: "Piezas para el viaje y para después.",
-  body: "Tres líneas abiertas todo el año, más ediciones que cambian con la temporada. Todo se produce en tiradas cortas.",
+  title: "La tienda: piezas para el viaje y para después.",
+  body: "Merch de la marca como complemento: gorras, camisetas y accesorios de producción corta.",
   cta: { label: "Ver toda la tienda", href: "/shop" },
 };
 

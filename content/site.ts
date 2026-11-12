@@ -46,7 +46,7 @@ export const navigation: NavItem[] = [
         ],
       },
       {
-        title: "Branded accessories",
+        title: "Accesorios",
         links: [
           { label: "Artículos de viaje", href: "/shop?c=accesorios", description: "Totes, dry bags, fundas de pasaporte y botellas." },
           { label: "Uso cotidiano", href: "/shop?c=accesorios", description: "Piezas que se quedan contigo más allá de las vacaciones." },
@@ -70,6 +70,7 @@ export const navigation: NavItem[] = [
       cta: "Ver la colección",
     },
   },
+
   {
     label: "Paquetes",
     href: "/packages",

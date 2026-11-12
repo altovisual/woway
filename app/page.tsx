@@ -15,17 +15,17 @@ import { packages } from "@/content/packages";
 import { site } from "@/content/site";
 
 const PILLAR_ICONS: Record<string, string> = {
-  Apparel: "/icons/woway_icon_01_camisetas.svg",
-  "Branded accessories": "/icons/woway_icon_04_articulos_viaje.svg",
-  "Ediciones especiales": "/icons/woway_icon_06_ediciones_especiales.svg",
-  "Customer rewards": "/icons/woway_icon_24_we_handle_everything.svg",
+  "Traslados privados": "/icons/woway_icon_14_cancun.svg",
+  "Tours y cultura": "/icons/woway_icon_11_cultura.svg",
+  "Mar y yates": "/icons/woway_icon_12_naturaleza.svg",
+  Concierge: "/icons/woway_icon_24_we_handle_everything.svg",
 };
 
 const PILLAR_EN: Record<string, [string, string]> = {
-  Apparel: ["Apparel", "Tees, caps and layers in heavy cotton, built for the heat and made to last."],
-  "Branded accessories": ["Branded accessories", "Totes, bottles, holders and dry bags: everyday objects that actually work on a trip."],
-  "Ediciones especiales": ["Limited editions", "Short, numbered runs and collaborations with artists from the peninsula."],
-  "Customer rewards": ["Customer rewards", "Merch as a gift: welcome, selected packages, returning guests and VIP service."],
+  "Traslados privados": ["Private transfers", "Airport, hotel and city in your own vehicle with a bilingual driver. Sedan, SUV or Sprinter for larger groups."],
+  "Tours y cultura": ["Tours & culture", "Chichén Itzá, Tulum and cenotes with a certified guide, tickets and lunch included."],
+  "Mar y yates": ["Sea & yachts", "Catamarans, jet skis and private yachts with crew, snorkel and an open bar on board."],
+  Concierge: ["Concierge", "One WhatsApp thread to change dates, add extras or fix an issue the same day."],
 };
 
 const TIER_EN: Record<string, [string, string, string]> = {
@@ -62,25 +62,25 @@ export default function HomePage() {
         </div>
         <div className="container hero__content">
           <p className="eyebrow" style={{ margin: 0 }}>
-            {t(hero.eyebrow, "Merchandise & lifestyle · Cancún")}
+            {t(hero.eyebrow, "Private experiences · Cancún")}
           </p>
           <h1 className="hero__title">
-            {t(hero.headline, "You are not just part of the trip. You are part of the lifestyle.")}
+            {t(hero.headline, "Cancún without queues, shared shuttles or surprises.")}
           </h1>
           <p className="hero__sub">
-            {t(hero.subhead, "Our own apparel and travel accessories, plus private experiences across the Mexican Caribbean. Pieces you wear on the beach and keep wearing when you get home.")}
+            {t(hero.subhead, "Private transfers, tours, cenotes and yachts across the Mexican Caribbean. You pick the date and the travellers; we handle the rest.")}
           </p>
           <div className="hero__actions">
             <Link href={hero.primary.href} className="btn">
-              {t(hero.primary.label, "Shop the collection")}
+              {t(hero.primary.label, "Explore packages")}
               <Icon name="arrow" size={16} className="btn__arrow" />
             </Link>
             <Link href={hero.secondary.href} className="btn btn--ghost">
-              {t(hero.secondary.label, "Explore packages")}
+              {t(hero.secondary.label, "Talk to an advisor")}
             </Link>
           </div>
           <p className="hero__note">
-            {t(hero.note, "Ships across Mexico and the US · Hotel delivery · Delivered on experiences")}
+            {t(hero.note, "Pay in MXN or USD · 10% deposit · flexible cancellation")}
           </p>
         </div>
       </section>
