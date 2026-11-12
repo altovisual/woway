@@ -31,7 +31,15 @@ export function HomeSearchBar() {
     } catch {
       /* sin almacenamiento */
     }
-    router.push("/packages#paquetes-listado");
+    const qs = new URLSearchParams({
+      exp,
+      zone,
+      pax: String(pax),
+      in: checkIn,
+      out: checkOut,
+      size,
+    });
+    router.push(`/packages?${qs.toString()}#paquetes-listado`);
   };
 
   return (

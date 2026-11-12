@@ -5783,3 +5783,30 @@ html, body {
   .dp__pop { width: calc(100vw - 24px) !important; }
   .dp__foot { position: sticky; bottom: 0; background: var(--surface); }
 }
+
+/* Resumen de filtros activos */
+.pkg-active {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--brand-accent);
+  background: var(--surface-2);
+  font-size: 0.85rem;
+  color: var(--ink-700);
+}
+.pkg-active strong { color: var(--ink-900); }
+.pkg-active button {
+  border: 0;
+  background: transparent;
+  color: var(--brand-accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
