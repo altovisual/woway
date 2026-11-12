@@ -5507,3 +5507,39 @@ html, body {
   .hsearch__row, .hsearch__row--secondary { grid-template-columns: 1fr; }
   .hsearch__submit { width: 100%; }
 }
+
+/* Botón Buscar con las puntas cortadas del sistema de botones */
+.hsearch__submit {
+  --notch: 14px;
+  background: var(--ink-900);
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+  height: 46px;
+  clip-path: polygon(
+    var(--notch) 0,
+    100% 0,
+    100% calc(100% - var(--notch)),
+    calc(100% - var(--notch)) 100%,
+    0 100%,
+    0 var(--notch)
+  );
+}
+.hsearch__submit:hover:not(:disabled) { background: #000; }
+.hsearch__submit:disabled {
+  background: var(--surface-3);
+  color: var(--ink-400);
+  opacity: 1;
+}
+/* Los chips de talla también heredan la muesca */
+.hsearch__size {
+  --notch: 8px;
+  clip-path: polygon(
+    var(--notch) 0,
+    100% 0,
+    100% calc(100% - var(--notch)),
+    calc(100% - var(--notch)) 100%,
+    0 100%,
+    0 var(--notch)
+  );
+}
