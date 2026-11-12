@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon } from "./Icon";
+import { RevealText } from "./RevealText";
 import { CountUp } from "./CountUp";
 
 export function SectionHead({
@@ -153,7 +154,7 @@ export function PageHero({
         <div className="page-hero__inner">
           <div>
             {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-            <h1 className="page-hero__title">{title}</h1>
+            <RevealText text={title} className="page-hero__title" />
           </div>
           {(body || actions) && (
             <div className="page-hero__side">

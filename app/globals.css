@@ -5145,3 +5145,31 @@ html, body {
   .pkg-row__buy { border-top: 1px solid var(--line); }
   .pkg-row__more { border-radius: 0; }
 }
+
+/* ==========================================================================
+   Revelado de titulares (scroll reveal por palabras)
+   ========================================================================== */
+.reveal {
+  display: block;
+}
+.reveal__word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.55em) rotate(1.5deg);
+  filter: blur(8px);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease), filter 700ms var(--ease);
+  will-change: opacity, transform, filter;
+}
+.reveal--in .reveal__word {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal__word {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}

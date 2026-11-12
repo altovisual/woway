@@ -6,6 +6,7 @@ import { FAQ } from "@/components/FAQ";
 import { Testimonials } from "@/components/Testimonials";
 import { Marquee } from "@/components/Marquee";
 import { HeroDestinations } from "@/components/HeroDestinations";
+import { RevealText } from "@/components/RevealText";
 import { CTABand, SectionHead, Stats } from "@/components/ui";
 import { useLang } from "@/components/lang/LangProvider";
 import { heroPhoto, packagePhotos, partnerLogos, productPhotos, productTints } from "@/content/media";
@@ -65,9 +66,7 @@ export default function HomePage() {
           <p className="eyebrow" style={{ margin: 0 }}>
             {t(hero.eyebrow, "Private experiences · Cancún")}
           </p>
-          <h1 className="hero__title">
-            {t(hero.headline, "Cancún without queues, shared shuttles or surprises.")}
-          </h1>
+          <RevealText text={t(hero.headline, "Cancún without queues, shared shuttles or surprises.")} className="hero__title" />
           <p className="hero__sub">
             {t(hero.subhead, "Private transfers, tours, cenotes and yachts across the Mexican Caribbean. You pick the date and the travellers; we handle the rest.")}
           </p>
