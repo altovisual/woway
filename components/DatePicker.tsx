@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Icon } from "./Icon";
 
 const MONTHS = [
@@ -19,6 +20,9 @@ function parseISO(v: string) {
   return new Date(y, m - 1, d);
 }
 
+const POP_W = 300;
+const POP_H = 380;
+
 export function DatePicker({
   value,
   onChange,
@@ -33,13 +37,46 @@ export function DatePicker({
   placeholder?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [pos, setPos] = useState({ top: 0, left: 0 });
   const [cursor, setCursor] = useState(() => parseISO(value) ?? new Date());
-  const box = useRef<HTMLDivElement | null>(null);
+  const trigger = useRef<HTMLButtonElement | null>(null);
+  const pop = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => setMounted(true), []);
+
+  const place = () => {
+    const btn = trigger.current;
+    if (!btn) return;
+    const r = btn.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const w = Math.min(POP_W, vw - 24);
+    let left = r.left;
+    if (left + w > vw - 12) left = Math.max(12, vw - w - 12);
+    const below = vh - r.bottom;
+    const top = below < POP_H && r.top > POP_H ? r.top - POP_H - 8 : r.bottom + 8;
+    setPos({ top: Math.max(8, top), left });
+  };
+
+  useLayoutEffect(() => {
+    if (!open) return;
+    place();
+    const onScroll = () => place();
+    window.addEventListener("scroll", onScroll, true);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll, true);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
     const onDoc = (e: MouseEvent) => {
-      if (box.current && !box.current.contains(e.target as Node)) setOpen(false);
+      const t = e.target as Node;
+      if (pop.current?.contains(t) || trigger.current?.contains(t)) return;
+      setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     document.addEventListener("mousedown", onDoc);
@@ -52,7 +89,7 @@ export function DatePicker({
 
   const days = useMemo(() => {
     const first = new Date(cursor.getFullYear(), cursor.getMonth(), 1);
-    const startIdx = (first.getDay() + 6) % 7; // lunes primero
+    const startIdx = (first.getDay() + 6) % 7;
     const total = new Date(cursor.getFullYear(), cursor.getMonth() + 1, 0).getDate();
     const cells: (Date | null)[] = Array(startIdx).fill(null);
     for (let d = 1; d <= total; d++) cells.push(new Date(cursor.getFullYear(), cursor.getMonth(), d));
@@ -68,14 +105,71 @@ export function DatePicker({
     onChange(toISO(d));
     setOpen(false);
   };
+  const move = (delta: number) => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() + delta, 1));
 
-  const move = (delta: number) => {
-    setCursor(new Date(cursor.getFullYear(), cursor.getMonth() + delta, 1));
-  };
+  const panel = open && mounted && (
+    <div
+      ref={pop}
+      className="dp__pop"
+      role="dialog"
+      aria-label={label}
+      style={{ position: "fixed", top: pos.top, left: pos.left, width: Math.min(POP_W, 320) }}
+    >
+      <div className="dp__head">
+        <button type="button" className="dp__nav" onClick={() => move(-1)} aria-label="Mes anterior">
+          ‹
+        </button>
+        <span className="dp__month">
+          {MONTHS[cursor.getMonth()]} de {cursor.getFullYear()}
+        </span>
+        <button type="button" className="dp__nav" onClick={() => move(1)} aria-label="Mes siguiente">
+          ›
+        </button>
+      </div>
+
+      <div className="dp__week" aria-hidden="true">
+        {WEEK.map((d) => (
+          <span key={d}>{d}</span>
+        ))}
+      </div>
+
+      <div className="dp__grid">
+        {days.map((d, i) => {
+          if (!d) return <span key={`e-${i}`} className="dp__empty" />;
+          const iso = toISO(d);
+          const disabled = minDate ? d < minDate : false;
+          const isSelected = value === iso;
+          const isToday = iso === toISO(today);
+          return (
+            <button
+              key={iso}
+              type="button"
+              disabled={disabled}
+              className={`dp__day${isSelected ? " dp__day--on" : ""}${isToday ? " dp__day--today" : ""}`}
+              onClick={() => pick(d)}
+              aria-pressed={isSelected}
+            >
+              {d.getDate()}
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="dp__foot">
+        <button type="button" onClick={() => { onChange(""); setOpen(false); }}>
+          Borrar
+        </button>
+        <button type="button" onClick={() => pick(today)}>
+          Hoy
+        </button>
+      </div>
+    </div>
+  );
 
   return (
-    <div className="dp" ref={box}>
+    <div className="dp">
       <button
+        ref={trigger}
         type="button"
         className="dp__trigger"
         onClick={() => setOpen((o) => !o)}
@@ -87,58 +181,7 @@ export function DatePicker({
         <Icon name="calendar" size={17} />
       </button>
 
-      {open && (
-        <div className="dp__pop" role="dialog" aria-label={label}>
-          <div className="dp__head">
-            <button type="button" className="dp__nav" onClick={() => move(-1)} aria-label="Mes anterior">
-              ‹
-            </button>
-            <span className="dp__month">
-              {MONTHS[cursor.getMonth()]} de {cursor.getFullYear()}
-            </span>
-            <button type="button" className="dp__nav" onClick={() => move(1)} aria-label="Mes siguiente">
-              ›
-            </button>
-          </div>
-
-          <div className="dp__week" aria-hidden="true">
-            {WEEK.map((d) => (
-              <span key={d}>{d}</span>
-            ))}
-          </div>
-
-          <div className="dp__grid">
-            {days.map((d, i) => {
-              if (!d) return <span key={`e-${i}`} className="dp__empty" />;
-              const iso = toISO(d);
-              const disabled = minDate ? d < minDate : false;
-              const isSelected = value === iso;
-              const isToday = iso === toISO(today);
-              return (
-                <button
-                  key={iso}
-                  type="button"
-                  disabled={disabled}
-                  className={`dp__day${isSelected ? " dp__day--on" : ""}${isToday ? " dp__day--today" : ""}`}
-                  onClick={() => pick(d)}
-                  aria-pressed={isSelected}
-                >
-                  {d.getDate()}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="dp__foot">
-            <button type="button" onClick={() => { onChange(""); setOpen(false); }}>
-              Borrar
-            </button>
-            <button type="button" onClick={() => pick(today)}>
-              Hoy
-            </button>
-          </div>
-        </div>
-      )}
+      {mounted && panel ? createPortal(panel, document.body) : null}
     </div>
   );
 }

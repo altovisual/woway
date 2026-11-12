@@ -5762,3 +5762,24 @@ html, body {
 @media (max-width: 560px) {
   .dp__pop { width: min(296px, calc(100vw - 40px)); }
 }
+
+/* Popover del calendario en portal: capa propia y responsivo */
+.dp__pop {
+  z-index: 400;
+  max-height: min(420px, calc(100vh - 24px));
+  overflow-y: auto;
+  transform-origin: top left;
+  animation: dpIn 160ms var(--ease);
+  border-radius: 16px;
+}
+@keyframes dpIn {
+  from { opacity: 0; transform: translateY(-4px) scale(0.99); }
+  to { opacity: 1; transform: none; }
+}
+.dp__month { text-transform: capitalize; font-size: clamp(0.85rem, 0.8rem + 0.3vw, 1rem); }
+.dp__day { height: clamp(32px, 4.4vw, 38px); font-size: clamp(0.8rem, 0.72rem + 0.3vw, 0.9rem); }
+
+@media (max-width: 420px) {
+  .dp__pop { width: calc(100vw - 24px) !important; }
+  .dp__foot { position: sticky; bottom: 0; background: var(--surface); }
+}
