@@ -12,11 +12,13 @@ export function RevealText({
   className,
   delay = 0,
   style,
+  as = "h1",
 }: {
   text: string;
   className?: string;
   delay?: number;
   style?: CSSProperties;
+  as?: "h1" | "h2" | "h3";
 }) {
   const ref = useRef<HTMLHeadingElement | null>(null);
   const [shown, setShown] = useState(false);
@@ -42,10 +44,11 @@ export function RevealText({
   }, []);
 
   const words = text.split(" ");
+  const Tag = as;
 
   return (
-    <h1
-      ref={ref}
+    <Tag
+      ref={ref as never}
       className={`reveal ${shown ? "reveal--in" : ""} ${className ?? ""}`}
       style={style}
       aria-label={text}
@@ -61,6 +64,6 @@ export function RevealText({
           {i < words.length - 1 ? "\u00A0" : ""}
         </span>
       ))}
-    </h1>
+    </Tag>
   );
 }

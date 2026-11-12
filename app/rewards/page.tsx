@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FAQ } from "@/components/FAQ";
 import { Icon } from "@/components/Icon";
 import { CTABand, PageHero } from "@/components/ui";
+import { RevealText } from "@/components/RevealText";
 import { models, rewardsFaq, rewardsHero, strategic, tiers } from "@/content/rewards";
 
 export const metadata: Metadata = {
@@ -31,9 +32,7 @@ export default function RewardsPage() {
             <div className="model-block" key={m.id}>
               <div>
                 <span className="model-block__num">{m.number}</span>
-                <h2 className="h2" style={{ marginTop: 10 }}>
-                  {m.title}
-                </h2>
+                <RevealText as="h2" text={m.title} className="h2" style={{ marginTop: 10 }} />
                 <p className="eyebrow" style={{ marginTop: 8, marginBottom: 0 }}>
                   {m.subtitle}
                 </p>
