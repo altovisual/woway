@@ -4807,3 +4807,14 @@ html, body { max-width: 100%; overflow-x: hidden; }
   line-height: 1.6;
   max-width: 52ch;
 }
+
+/* overflow-x: hidden rompía position:sticky en el header.
+   clip no crea contenedor de scroll, así que el sticky sigue funcionando. */
+html, body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+.header {
+  position: sticky;
+  top: 0;
+}
