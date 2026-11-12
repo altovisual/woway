@@ -193,7 +193,7 @@ export function Header({ overHero }: { overHero?: boolean }) {
               <div className="mega__main">
                 {item.columns.map((col) => (
                   <div className="mega__section" key={col.title}>
-                    <div className="mega__section-title">{col.title}</div>
+                    <div className="mega__section-title">{t(col.title)}</div>
                     <div className="mega__items">
                       {col.links.map((link, i) => (
                         <Link
@@ -206,7 +206,7 @@ export function Header({ overHero }: { overHero?: boolean }) {
                             <img src={megaIcon(link.label)} alt="" />
                           </span>
                           <span>
-                            <span className="mega__item-title">{link.label}</span>
+                            <span className="mega__item-title">{t(link.label)}</span>
                             {link.description && <span className="mega__item-desc">{link.description}</span>}
                           </span>
                         </Link>
@@ -237,7 +237,7 @@ export function Header({ overHero }: { overHero?: boolean }) {
           item.columns ? (
             <details className="drawer__group" key={`drawer-${item.label}`}>
               <summary className="drawer__summary">
-                {item.label}
+                {t(item.label)}
                 <Icon name="plus" size={20} />
               </summary>
               <div className="drawer__links">

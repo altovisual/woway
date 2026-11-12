@@ -6,6 +6,7 @@ import type { TravelPackage } from "@/content/packages";
 import { packageCategories } from "@/content/packages";
 import { packagePhotos } from "@/content/media";
 import { Icon } from "./Icon";
+import { useLang } from "./lang/LangProvider";
 
 function mxn(value: number) {
   return new Intl.NumberFormat("es-MX", {
@@ -22,6 +23,7 @@ const EXP_TO_FILTER: Record<string, { cat: string; re: string; label: string }> 
   Nightlife: { cat: "tours", re: "cruise|fiesta|noche|dancer|bar", label: "Nightlife" },
 };
 export function PackageGrid({ packages }: { packages: TravelPackage[] }) {
+  const { t } = useLang();
   const [active, setActive] = useState<string>("todos");
   const [term, setTerm] = useState("");
   const [expLabel, setExpLabel] = useState<string | null>(null);
@@ -74,7 +76,7 @@ export function PackageGrid({ packages }: { packages: TravelPackage[] }) {
             aria-pressed={active === c.id}
             onClick={() => setActive(c.id)}
           >
-            {c.label}
+            {t(c.label)}
             <span className="chip__count">
               {c.id === "todos" ? packages.length : packages.filter((p) => p.category === c.id).length}
             </span>
@@ -93,7 +95,7 @@ export function PackageGrid({ packages }: { packages: TravelPackage[] }) {
               aria-current={active === c.id}
               onClick={() => setActive(c.id)}
             >
-              {c.label}
+              {t(c.label)}
               <span className="pkg-side__count">
                 {c.id === "todos" ? packages.length : packages.filter((p) => p.category === c.id).length}
               </span>
@@ -154,21 +156,21 @@ export function PackageGrid({ packages }: { packages: TravelPackage[] }) {
               </ul>
 
               <Link href={`/packages/${p.slug}`} className="pkg-row__more">
-                Ver más detalles
+                {t("Ver más detalles")}
                 <Icon name="arrow" size={15} />
               </Link>
             </div>
 
             <div className="pkg-row__buy">
-              <span className="pkg-row__tag">{p.kind === "servicio" ? "Servicio privado" : "Experiencia guiada"}</span>
+              <span className="pkg-row__tag">{p.kind === "servicio" ? t("Servicio privado") : t("Experiencia guiada")}</span>
               <div className="pkg-row__price">
-                <span className="pkg-row__from">Desde</span>
+                <span className="pkg-row__from">{t("Desde")}</span>
                 <strong>{mxn(p.adultPrice)}</strong>
                 <span className="pkg-row__currency">MXN</span>
               </div>
               <span className="pkg-row__note">Precio por persona · impuestos incluidos</span>
               <Link href={`/packages/${p.slug}`} className="btn pkg-row__cta">
-                Reservar
+                {t("Reservar")}
                 <Icon name="arrow" size={16} className="btn__arrow" />
               </Link>
             </div>

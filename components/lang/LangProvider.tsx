@@ -1,14 +1,15 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { tr } from "@/content/es-en";
 
 export type Lang = "es" | "en";
 
 type Ctx = {
   lang: Lang;
   setLang: (l: Lang) => void;
-  /** Inline translation: t("Texto en español", "English text") */
-  t: (es: string, en: string) => string;
+  /** Inline translation: t("Texto en español", "English text"). Si falta el inglés usa el diccionario. */
+  t: (es: string, en?: string) => string;
 };
 
 const LangContext = createContext<Ctx | null>(null);
@@ -40,7 +41,11 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = useMemo<Ctx>(
-    () => ({ lang, setLang, t: (es: string, en: string) => (lang === "en" ? en : es) }),
+    () => ({
+      lang,
+      setLang,
+      t: (es: string, en?: string) => (lang === "en" ? (en ?? tr(es)) : es),
+    }),
     [lang, setLang]
   );
 
