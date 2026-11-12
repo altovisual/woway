@@ -109,6 +109,58 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container">
+          <div className="split-head">
+            <div className="section-head" style={{ marginBottom: 0 }}>
+              <p className="eyebrow">{t(packagesTeaser.eyebrow, "Experiences")}</p>
+              <h2 className="h2">{t(packagesTeaser.title, "Travel with us. Come back wearing something.")}</h2>
+              <p className="lead" style={{ marginTop: 16 }}>
+                {t(packagesTeaser.body, "Private transfers, tours and yacht days in Cancún, Riviera Maya and Yucatán. Pick a date, travellers and extras in the same checkout.")}
+              </p>
+            </div>
+            <Link href={packagesTeaser.cta.href} className="link-arrow">
+              {t(packagesTeaser.cta.label, "See all packages")}
+              <Icon name="arrow" size={16} />
+            </Link>
+          </div>
+
+          <div className="trip-grid trip-grid--home">
+            {top.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/packages/${p.slug}`}
+                className="trip-card"
+                aria-label={`${p.name} — ver detalle y reservar`}
+              >
+                <div className="trip-card__media" style={{ background: p.gradient }}>
+                  {packagePhotos[p.slug] && <img src={packagePhotos[p.slug]} alt={p.name} loading="lazy" />}
+                  <span className="trip-card__shade" aria-hidden="true" />
+                  {p.badge && <span className="trip-card__badge">{p.badge}</span>}
+                  <div className="trip-card__content">
+                    <span className="trip-card__place">{p.destination}</span>
+                    <h3 className="trip-card__title">{p.name}</h3>
+                    <p className="trip-card__short">{p.short}</p>
+                    <div className="trip-card__meta">
+                      <span>★ {p.rating.toFixed(1)}</span>
+                      <span className="trip-card__sep" aria-hidden="true" />
+                      <span style={{ textTransform: "capitalize" }}>{p.category}</span>
+                    </div>
+                    <div className="trip-card__foot">
+                      <span className="trip-card__price">{formatMXN(p.adultPrice)} MXN</span>
+                      <span className="btn btn--sm trip-card__btn">
+                        {t("Reservar", "Book")}
+                        <Icon name="arrow" size={15} className="btn__arrow" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section section--surface">
         <div className="container">
           <div className="split-head">
@@ -175,58 +227,6 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="split-head">
-            <div className="section-head" style={{ marginBottom: 0 }}>
-              <p className="eyebrow">{t(packagesTeaser.eyebrow, "Experiences")}</p>
-              <h2 className="h2">{t(packagesTeaser.title, "Travel with us. Come back wearing something.")}</h2>
-              <p className="lead" style={{ marginTop: 16 }}>
-                {t(packagesTeaser.body, "Private transfers, tours and yacht days in Cancún, Riviera Maya and Yucatán. Pick a date, travellers and extras in the same checkout.")}
-              </p>
-            </div>
-            <Link href={packagesTeaser.cta.href} className="link-arrow">
-              {t(packagesTeaser.cta.label, "See all packages")}
-              <Icon name="arrow" size={16} />
-            </Link>
-          </div>
-
-          <div className="trip-grid trip-grid--home">
-            {top.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/packages/${p.slug}`}
-                className="trip-card"
-                aria-label={`${p.name} — ver detalle y reservar`}
-              >
-                <div className="trip-card__media" style={{ background: p.gradient }}>
-                  {packagePhotos[p.slug] && <img src={packagePhotos[p.slug]} alt={p.name} loading="lazy" />}
-                  <span className="trip-card__shade" aria-hidden="true" />
-                  {p.badge && <span className="trip-card__badge">{p.badge}</span>}
-                  <div className="trip-card__content">
-                    <span className="trip-card__place">{p.destination}</span>
-                    <h3 className="trip-card__title">{p.name}</h3>
-                    <p className="trip-card__short">{p.short}</p>
-                    <div className="trip-card__meta">
-                      <span>★ {p.rating.toFixed(1)}</span>
-                      <span className="trip-card__sep" aria-hidden="true" />
-                      <span style={{ textTransform: "capitalize" }}>{p.category}</span>
-                    </div>
-                    <div className="trip-card__foot">
-                      <span className="trip-card__price">{formatMXN(p.adultPrice)} MXN</span>
-                      <span className="btn btn--sm trip-card__btn">
-                        {t("Reservar", "Book")}
-                        <Icon name="arrow" size={15} className="btn__arrow" />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
