@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { TravelPackage } from "@/content/packages";
 import { packageCategories } from "@/content/packages";
+import { EN_PACKAGES } from "@/content/en-catalog";
 import { packagePhotos } from "@/content/media";
 import { Icon } from "./Icon";
 import { useLang } from "./lang/LangProvider";
@@ -23,7 +24,7 @@ const EXP_TO_FILTER: Record<string, { cat: string; re: string; label: string }> 
   Nightlife: { cat: "tours", re: "cruise|fiesta|noche|dancer|bar", label: "Nightlife" },
 };
 export function PackageGrid({ packages }: { packages: TravelPackage[] }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [active, setActive] = useState<string>("todos");
   const [term, setTerm] = useState("");
   const [expLabel, setExpLabel] = useState<string | null>(null);
@@ -59,7 +60,7 @@ export function PackageGrid({ packages }: { packages: TravelPackage[] }) {
     let out = active === "todos" ? packages : packages.filter((p) => p.category === active);
     if (term) {
       const re = new RegExp(term, "i");
-      const matched = out.filter((p) => re.test(`${p.name} ${p.short} ${p.destination}`));
+      const matched = out.filter((p) => re.test(`${lang === "en" ? EN_PACKAGES[p.slug]?.name ?? p.name : p.name} ${lang === "en" ? EN_PACKAGES[p.slug]?.short ?? p.short : p.short} ${p.destination}`));
       out = matched.length ? matched : out;
     }
     return out;
@@ -142,9 +143,9 @@ export function PackageGrid({ packages }: { packages: TravelPackage[] }) {
             <div className="pkg-row__body">
               <span className="pkg-row__eyebrow">{p.destination}</span>
               <h2 className="pkg-row__title">
-                <Link href={`/packages/${p.slug}`}>{p.name}</Link>
+                <Link href={`/packages/${p.slug}`}>{lang === "en" ? EN_PACKAGES[p.slug]?.name ?? p.name : p.name}</Link>
               </h2>
-              <p className="pkg-row__desc">{p.short}</p>
+              <p className="pkg-row__desc">{lang === "en" ? EN_PACKAGES[p.slug]?.short ?? p.short : p.short}</p>
 
               <ul className="pkg-row__meta">
                 {p.includes.slice(0, 4).map((inc) => (

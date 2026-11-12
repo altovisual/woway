@@ -8,6 +8,7 @@ import { collectionLabels, formatMXN, type Product } from "@/content/shop";
 import { productPhotos, productTints } from "@/content/media";
 import { enProducts } from "@/content/i18n-data";
 import { RevealText } from "./RevealText";
+import { EN_PRODUCTS } from "@/content/en-catalog";
 
 export function ProductView({ product, related }: { product: Product; related: Product[] }) {
   const { lang, t } = useLang();
@@ -59,7 +60,7 @@ export function ProductView({ product, related }: { product: Product; related: P
               <div>
                 <span className="tag">{t(collectionLabels[product.collection], collectionEn(product.collection))}</span>
                 <RevealText
-                  text={name}
+                  text={lang === "en" ? EN_PRODUCTS[product.slug]?.name ?? name : name}
                   className="h2"
                   style={{ fontSize: "clamp(1.8rem,1.4rem+1.6vw,2.4rem)", marginTop: 12 }}
                 />

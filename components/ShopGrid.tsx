@@ -5,6 +5,8 @@ import { useMemo, useState } from "react";
 import type { Product } from "@/content/shop";
 import { collectionLabels, formatMXN } from "@/content/shop";
 import { productPhotos, productTints } from "@/content/media";
+import { EN_PRODUCTS } from "@/content/en-catalog";
+import { useLang } from "./lang/LangProvider";
 
 const filters = [
   { id: "todos", label: "Todo" },
@@ -15,6 +17,7 @@ const filters = [
 ];
 
 export function ShopGrid({ products }: { products: Product[] }) {
+  const { lang } = useLang();
   const [active, setActive] = useState("todos");
 
   const list = useMemo(() => {
@@ -45,7 +48,7 @@ export function ShopGrid({ products }: { products: Product[] }) {
               {productPhotos[p.slug] && (
                 <img
                   src={productPhotos[p.slug]}
-                  alt={p.name}
+                  alt={lang === "en" ? EN_PRODUCTS[p.slug]?.name ?? p.name : p.name}
                   loading="lazy"
                   style={{ filter: productTints[p.slug] }}
                 />
@@ -54,13 +57,13 @@ export function ShopGrid({ products }: { products: Product[] }) {
               <span className="product-card__mark">WoWay Black</span>
             </div>
             <div>
-              <h3 className="product-card__name">{p.name}</h3>
+              <h3 className="product-card__name">{lang === "en" ? EN_PRODUCTS[p.slug]?.name ?? p.name : p.name}</h3>
               <div className="product-card__meta" style={{ marginTop: 4 }}>
                 <span className="product-card__price">{formatMXN(p.price)}</span>
                 <span style={{ color: "var(--ink-500)", fontSize: "0.8125rem" }}>{collectionLabels[p.collection]}</span>
               </div>
             </div>
-            <p className="product-card__short">{p.short}</p>
+            <p className="product-card__short">{lang === "en" ? EN_PRODUCTS[p.slug]?.short ?? p.short : p.short}</p>
           </Link>
         ))}
       </div>
