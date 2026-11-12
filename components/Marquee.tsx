@@ -1,4 +1,4 @@
-type Item = { label: string; style?: string };
+type Item = { label: string; style?: string; tag?: string };
 
 const marks = [
   <circle key="c" cx="11" cy="11" r="8" fill="none" stroke="currentColor" strokeWidth="2.4" />,
@@ -14,7 +14,7 @@ export function Marquee({
   label,
 }: {
   items: Item[];
-  variant?: "destinations" | "logos";
+  variant?: "destinations" | "logos" | "promos";
   label?: string;
 }) {
   const row = [...items, ...items];
@@ -29,6 +29,7 @@ export function Marquee({
                 {marks[i % marks.length]}
               </svg>
             )}
+            {variant === "promos" && item.tag && <span className="marquee__tag">{item.tag}</span>}
             {item.label}
           </span>
         ))}

@@ -5543,3 +5543,42 @@ html, body {
     0 var(--notch)
   );
 }
+
+/* Marquee de promociones */
+.marquee--promos {
+  background: var(--ink-900);
+  border-block: 1px solid rgba(255, 255, 255, 0.12);
+}
+.marquee--promos .marquee__item {
+  color: #f6f2ea;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 6px;
+}
+.marquee--promos .marquee__item::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand-accent);
+  margin-left: 18px;
+}
+.marquee__tag {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #14100a;
+  background: #f6f2ea;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+.marquee--promos .marquee__track {
+  animation-duration: 42s;
+}

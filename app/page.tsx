@@ -91,7 +91,19 @@ export default function HomePage() {
       <HeroDestinations />
 
       <section>
-        <Marquee items={partnerLogos.map((p) => ({ label: p.name, style: p.style }))} variant="logos" label={t("Aliados", "Partners")} />
+        <Marquee
+          items={[
+            { label: "−20% reservando 14 días antes", tag: "Promo" },
+            { label: "Merch oficial gratis en paquetes de 5+ noches", tag: "Regalo" },
+            { label: "2ª persona −50% en tours seleccionados", tag: "Promo" },
+            { label: "Traslado privado incluido en todo paquete", tag: "Incluido" },
+            { label: "Cancelación flexible hasta 15 días antes", tag: "Beneficio" },
+            { label: "Paga en MXN o USD sin comisión", tag: "Pago" },
+            { label: "Concierge 24/7 durante toda la estancia", tag: "Servicio" },
+          ]}
+          variant="promos"
+          label={t("Promociones vigentes", "Current promotions")}
+        />
         <Marquee items={destinations.map((d) => ({ label: d }))} label={t("Destinos", "Destinations")} />
       </section>
 
