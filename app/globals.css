@@ -5615,3 +5615,150 @@ html, body {
   right: 0;
   background: linear-gradient(270deg, #0b0b0c 0%, rgba(11, 11, 12, 0) 100%);
 }
+
+/* ==========================================================================
+   Datepicker propio con estética de marca
+   ========================================================================== */
+.dp { position: relative; }
+.dp__trigger {
+  width: 100%;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--ink-900);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+}
+.dp__trigger:hover { border-color: var(--ink-500); }
+.dp__trigger:focus-visible {
+  outline: none;
+  border-color: var(--ink-900);
+  box-shadow: 0 0 0 3px rgba(8, 8, 10, 0.1);
+}
+.dp__trigger svg { color: var(--ink-500); flex: none; }
+.dp__placeholder { color: var(--ink-400); }
+
+.dp__pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 60;
+  width: 296px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(8, 8, 10, 0.22);
+}
+.dp__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.dp__month {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.dp__nav {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--ink-900);
+}
+.dp__nav:hover { background: var(--surface-2); }
+
+.dp__week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 4px;
+}
+.dp__week span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-400);
+  text-align: center;
+  padding: 6px 0;
+}
+.dp__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.dp__empty { display: block; }
+.dp__day {
+  height: 34px;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--ink-800);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.dp__day:hover:not(:disabled) { background: var(--surface-2); }
+.dp__day--today { box-shadow: inset 0 0 0 1px var(--line-strong); font-weight: 700; }
+.dp__day--on {
+  background: var(--brand-accent);
+  color: #fff;
+  font-weight: 700;
+}
+.dp__day--on:hover { background: var(--brand-accent); }
+.dp__day:disabled { color: var(--ink-300, #c9c6c1); cursor: not-allowed; }
+.dp__day:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 1px;
+}
+.dp__foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.dp__foot button {
+  border: 0;
+  background: transparent;
+  color: var(--brand-accent);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  padding: 6px 4px;
+  border-radius: 6px;
+}
+.dp__foot button:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Contraste del stepper de viajeros */
+.hsearch__stepper output {
+  color: var(--ink-900);
+  font-weight: 700;
+}
+.hsearch__stepper button {
+  color: var(--ink-900);
+  font-weight: 600;
+}
+.hsearch__stepper button:hover { background: var(--ink-100, #eceae6); }
+
+@media (max-width: 560px) {
+  .dp__pop { width: min(296px, calc(100vw - 40px)); }
+}

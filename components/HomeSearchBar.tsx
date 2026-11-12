@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Icon } from "./Icon";
+import { DatePicker } from "./DatePicker";
 
 const ZONES = ["Cancún Zona Hotelera", "Costa Mujeres", "Playa del Carmen", "Tulum"];
 const EXPERIENCES = ["Todas", "Jetski & Lagoon", "Lancha/Yate Privado", "Cenotes & Aventura", "Nightlife"];
@@ -36,26 +37,15 @@ export function HomeSearchBar() {
   return (
     <form className="hsearch" onSubmit={submit} aria-label="Buscar paquetes por fechas">
       <div className="hsearch__row">
-        <label className="hsearch__field">
+        <div className="hsearch__field">
           <span>Llegada</span>
-          <input
-            type="date"
-            value={checkIn}
-            onChange={(e) => setCheckIn(e.target.value)}
-            aria-label="Fecha de llegada"
-          />
-        </label>
+          <DatePicker value={checkIn} onChange={setCheckIn} label="Fecha de llegada" />
+        </div>
 
-        <label className="hsearch__field">
+        <div className="hsearch__field">
           <span>Regreso</span>
-          <input
-            type="date"
-            min={checkIn || undefined}
-            value={checkOut}
-            onChange={(e) => setCheckOut(e.target.value)}
-            aria-label="Fecha de regreso"
-          />
-        </label>
+          <DatePicker value={checkOut} onChange={setCheckOut} min={checkIn} label="Fecha de regreso" />
+        </div>
 
         <label className="hsearch__field hsearch__field--grow">
           <span>Zona</span>
