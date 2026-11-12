@@ -5,6 +5,7 @@ import { Icon } from "@/components/Icon";
 import { FAQ } from "@/components/FAQ";
 import { Testimonials } from "@/components/Testimonials";
 import { Marquee } from "@/components/Marquee";
+import { HeroDestinations } from "@/components/HeroDestinations";
 import { CTABand, SectionHead, Stats } from "@/components/ui";
 import { useLang } from "@/components/lang/LangProvider";
 import { heroPhoto, packagePhotos, partnerLogos, productPhotos, productTints } from "@/content/media";
@@ -84,6 +85,8 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      <HeroDestinations />
 
       <section>
         <Marquee items={partnerLogos.map((p) => ({ label: p.name, style: p.style }))} variant="logos" label={t("Aliados", "Partners")} />
