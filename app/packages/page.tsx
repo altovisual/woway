@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Icon } from "@/components/Icon";
 import { PackageGrid } from "@/components/PackageGrid";
 import { PageHero } from "@/components/ui";
-import { SmartHeroWidget } from "@/components/SmartHeroWidget";
 import { packages } from "@/content/packages";
 
 export const metadata: Metadata = {
@@ -30,12 +29,6 @@ export default function PackagesPage() {
           { label: "Ver la tienda", href: "/shop" },
         ]}
       />
-
-      <section className="smart-wrap">
-        <div className="container">
-          <SmartHeroWidget />
-        </div>
-      </section>
 
       <section className="section" id="paquetes-listado">
         <div className="container">

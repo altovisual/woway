@@ -7,6 +7,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { Marquee } from "@/components/Marquee";
 import { HeroDestinations } from "@/components/HeroDestinations";
 import { RevealText } from "@/components/RevealText";
+import { HomeSearchBar } from "@/components/HomeSearchBar";
 import { CTABand, SectionHead, Stats } from "@/components/ui";
 import { useLang } from "@/components/lang/LangProvider";
 import { heroPhoto, packagePhotos, partnerLogos, productPhotos, productTints } from "@/content/media";
@@ -82,6 +83,8 @@ export default function HomePage() {
           <p className="hero__note">
             {t(hero.note, "Pay in MXN or USD · 10% deposit · flexible cancellation")}
           </p>
+
+          <HomeSearchBar />
         </div>
       </section>
 
