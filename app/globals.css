@@ -5810,3 +5810,99 @@ html, body {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* ==========================================================================
+   Búsqueda de vuelos
+   ========================================================================== */
+.flights { display: grid; gap: 20px; }
+.flights__form {
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+.flights__row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr auto auto;
+  align-items: end;
+}
+.flights__field { display: grid; gap: 5px; min-width: 0; }
+.flights__field > span {
+  font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-500); font-weight: 700;
+}
+.flights__field input,
+.flights__field select {
+  min-height: 46px; padding: 0 12px; font: inherit; font-size: 0.9375rem;
+  color: var(--ink-900); background: var(--surface);
+  border: 1px solid var(--line-strong); border-radius: 0;
+}
+.flights__stepper { display: flex; align-items: center; border: 1px solid var(--line-strong); height: 46px; }
+.flights__stepper button {
+  width: 36px; height: 100%; border: 0; background: var(--surface-2);
+  cursor: pointer; font-size: 1rem; color: var(--ink-900);
+}
+.flights__stepper output { min-width: 38px; text-align: center; font-weight: 700; color: var(--ink-900); }
+.flights__submit { height: 46px; padding-inline: 22px; white-space: nowrap; }
+.flights__submit:disabled { opacity: 0.6; cursor: wait; }
+.flights__notice {
+  font-size: 0.78rem; color: var(--ink-600); background: var(--surface-2);
+  border-left: 3px solid var(--brand-accent); padding: 10px 12px; line-height: 1.5;
+}
+.flights__notice code { font-size: 0.75rem; background: var(--surface-3); padding: 1px 5px; }
+.flights__error { color: #b91c1c; font-size: 0.85rem; }
+
+.flights__results { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.flights__results-head {
+  padding: 14px 0; font-size: 0.85rem; color: var(--ink-600);
+  border-bottom: 1px solid var(--line);
+}
+.flights__results-head strong { color: var(--ink-900); }
+.flights__empty { padding: 24px 0; color: var(--ink-500); }
+
+.flight {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 190px minmax(0, 1fr) 220px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.flight__airline { display: flex; align-items: center; gap: 10px; }
+.flight__code {
+  width: 38px; height: 38px; display: grid; place-items: center;
+  background: var(--ink-900); color: #fff; font-weight: 800; font-size: 0.75rem;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+.flight__airline strong { display: block; font-size: 0.9rem; }
+.flight__num { font-size: 0.75rem; color: var(--ink-500); }
+.flight__times { display: flex; align-items: center; gap: 14px; }
+.flight__times > span { display: grid; gap: 2px; }
+.flight__times strong { font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.flight__times small { font-size: 0.7rem; color: var(--ink-500); }
+.flight__leg { flex: 1; text-align: center; }
+.flight__line {
+  display: block; height: 1px; background: var(--line-strong); margin: 4px 0;
+  position: relative;
+}
+.flight__line::after {
+  content: ""; position: absolute; right: 0; top: -3px;
+  border: 3.5px solid transparent; border-left-color: var(--ink-400);
+}
+.flight__price { display: grid; gap: 4px; justify-items: end; text-align: right; }
+.flight__price strong { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: -0.02em; }
+.flight__price strong small { font-size: 0.7rem; color: var(--ink-500); }
+.flight__price > span { font-size: 0.72rem; color: var(--ink-500); }
+.flight__cta { height: 40px; margin-top: 4px; }
+
+@media (max-width: 900px) {
+  .flights__row { grid-template-columns: 1fr 1fr; }
+  .flights__submit { grid-column: 1 / -1; }
+  .flight { grid-template-columns: 1fr; gap: 12px; }
+  .flight__price { justify-items: start; text-align: left; }
+}
+@media (max-width: 560px) {
+  .flights__row { grid-template-columns: 1fr; }
+}
