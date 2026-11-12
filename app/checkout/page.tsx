@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CheckoutFlow } from "@/components/CheckoutFlow";
+import { RevealText } from "@/components/RevealText";
 
 export const metadata: Metadata = {
   title: "Checkout — completa tu pedido",
@@ -13,7 +14,7 @@ export default function CheckoutPage() {
       <section className="section" style={{ paddingBottom: 24 }}>
         <div className="container">
           <p className="eyebrow">Checkout</p>
-          <h1 className="h2">Completa tu pedido.</h1>
+          <RevealText text="Completa tu pedido." className="h2" />
           <p className="lead" style={{ marginTop: 12 }}>
             Merch y experiencias en una sola compra. Envío, entrega en hotel o recogida en Cancún.
           </p>

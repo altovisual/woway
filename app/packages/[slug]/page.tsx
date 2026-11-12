@@ -7,6 +7,7 @@ import { getPackage, packages } from "@/content/packages";
 import { packagePhotos } from "@/content/media";
 import { formatMXN } from "@/content/shop";
 import { packageCopy } from "@/content/packages-copy";
+import { RevealText } from "@/components/RevealText";
 
 type Params = { slug: string };
 
@@ -53,9 +54,11 @@ export default async function PackagePage({ params }: { params: Promise<Params> 
               </span>
             )}
           </div>
-          <h1 className="page-hero__title" style={{ color: "#fff", marginTop: 16, maxWidth: "18ch" }}>
-            {pkg.name}
-          </h1>
+          <RevealText
+            text={pkg.name}
+            className="page-hero__title"
+            style={{ color: "#fff", marginTop: 16, maxWidth: "18ch" }}
+          />
           <p style={{ color: "rgba(255,255,255,.82)", maxWidth: "52ch", marginTop: 14, fontSize: "1.05rem" }}>
             {pkg.short}
           </p>

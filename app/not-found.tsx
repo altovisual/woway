@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
+import { RevealText } from "@/components/RevealText";
 
 export default function NotFound() {
   return (
     <div className="container">
       <div className="notfound">
         <div className="notfound__code">404</div>
-        <h1 className="h2">Esta página se quedó en otro viaje.</h1>
+        <RevealText text="Esta página se quedó en otro viaje." className="h2" />
         <p className="lead" style={{ marginInline: "auto" }}>
           El enlace no existe. Prueba con la tienda o con los paquetes.
         </p>

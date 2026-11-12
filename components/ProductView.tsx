@@ -7,6 +7,7 @@ import { useLang } from "./lang/LangProvider";
 import { collectionLabels, formatMXN, type Product } from "@/content/shop";
 import { productPhotos, productTints } from "@/content/media";
 import { enProducts } from "@/content/i18n-data";
+import { RevealText } from "./RevealText";
 
 export function ProductView({ product, related }: { product: Product; related: Product[] }) {
   const { lang, t } = useLang();
@@ -57,9 +58,11 @@ export function ProductView({ product, related }: { product: Product; related: P
             <div style={{ display: "grid", gap: 18 }}>
               <div>
                 <span className="tag">{t(collectionLabels[product.collection], collectionEn(product.collection))}</span>
-                <h1 className="h2" style={{ fontSize: "clamp(1.8rem,1.4rem+1.6vw,2.4rem)", marginTop: 12 }}>
-                  {name}
-                </h1>
+                <RevealText
+                  text={name}
+                  className="h2"
+                  style={{ fontSize: "clamp(1.8rem,1.4rem+1.6vw,2.4rem)", marginTop: 12 }}
+                />
                 <div className="pdp__price" style={{ marginTop: 10 }}>
                   {formatMXN(product.price)}
                   {product.compareAt && <s>{formatMXN(product.compareAt)}</s>}

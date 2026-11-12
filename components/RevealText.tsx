@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 
 /**
  * Revelado de titular por palabras al entrar en viewport
@@ -10,10 +11,12 @@ export function RevealText({
   text,
   className,
   delay = 0,
+  style,
 }: {
   text: string;
   className?: string;
   delay?: number;
+  style?: CSSProperties;
 }) {
   const ref = useRef<HTMLHeadingElement | null>(null);
   const [shown, setShown] = useState(false);
@@ -41,7 +44,12 @@ export function RevealText({
   const words = text.split(" ");
 
   return (
-    <h1 ref={ref} className={`reveal ${shown ? "reveal--in" : ""} ${className ?? ""}`} aria-label={text}>
+    <h1
+      ref={ref}
+      className={`reveal ${shown ? "reveal--in" : ""} ${className ?? ""}`}
+      style={style}
+      aria-label={text}
+    >
       {words.map((word, i) => (
         <span
           key={`${word}-${i}`}
