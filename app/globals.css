@@ -4750,3 +4750,60 @@ tr:last-child td {
 .visual--mint {
   background: linear-gradient(135deg, #fdeeee 0%, #fdf7f6 100%);
 }
+
+/* ==========================================================================
+   Endurecimiento móvil
+   ========================================================================== */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+@media (max-width: 640px) {
+  :root { --section-y: clamp(2.75rem, 2rem + 5vw, 4rem); --gutter: 20px; }
+  .hero { min-height: auto; }
+  .hero__content { padding-block: 14px 30px; gap: 12px; }
+  .hero__wordmark img { width: 108vw; }
+  .h1, .page-hero__title { font-size: clamp(1.85rem, 7.2vw, 2.5rem); }
+  .h2 { font-size: clamp(1.6rem, 6.4vw, 2.1rem); }
+  .lead { font-size: 1rem; }
+  .btn { height: 50px; font-size: 0.95rem; }
+  .hero__actions, .cta-band__actions { width: 100%; flex-direction: column; }
+  .hero__actions .btn, .cta-band__actions .btn { width: 100%; }
+  .stat__value { font-size: 2.1rem; }
+  .stats { gap: 20px; }
+  .trip-card__media { min-height: 340px; }
+  .pkg-row__title { font-size: 1.25rem; }
+  .pkg-row__buy { padding: 14px; }
+  .cta-band { padding: 22px; border-radius: 20px; }
+  .cta-band__title { font-size: 1.55rem; }
+  .feature-split { gap: 28px; }
+  .footer__top { grid-template-columns: 1fr; gap: 28px; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+  .notfound__code { font-size: 4rem; }
+}
+
+/* Lista numerada (patrón 01 / 02 / 03 / 04) */
+.numbered {
+  display: grid;
+  gap: 34px 48px;
+}
+@media (min-width: 760px) { .numbered { grid-template-columns: 1fr 1fr; } }
+.numbered__item { display: grid; gap: 8px; align-content: start; }
+.numbered__num {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-400);
+  letter-spacing: 0.04em;
+}
+.numbered__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.numbered__desc {
+  color: var(--ink-500);
+  font-size: 0.9875rem;
+  line-height: 1.6;
+  max-width: 52ch;
+}

@@ -286,6 +286,55 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section section--surface">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">{t("Cómo funciona", "How it works")}</p>
+            <h2 className="h2">
+              {t("Cuatro pasos, una sola compra.", "Four steps, one single purchase.")}
+            </h2>
+          </div>
+          <div className="numbered">
+            {[
+              {
+                n: "01",
+                es: "Elige tu experiencia",
+                en: "Choose your experience",
+                des: "Traslado, tour, yate o paquete completo. Filtra por tipo y destino y revisa qué incluye cada uno.",
+                desEn: "Transfer, tour, yacht or full package. Filter by type and destination and see what each one includes.",
+              },
+              {
+                n: "02",
+                es: "Ajusta fecha y viajeros",
+                en: "Set date and travellers",
+                des: "Selecciona la variante (sedán, SUV, grupo de 6), la fecha y cuántos adultos y niños viajan.",
+                desEn: "Pick the variant (sedan, SUV, group of 6), the date and how many adults and children are travelling.",
+              },
+              {
+                n: "03",
+                es: "Añade extras y merch",
+                en: "Add extras and merch",
+                des: "Pack de drone, sesión fotográfica o una gorra y camiseta de la colección, en el mismo carrito.",
+                desEn: "Drone pack, photo session or a cap and tee from the collection, in the same cart.",
+              },
+              {
+                n: "04",
+                es: "Paga en MXN o USD",
+                en: "Pay in MXN or USD",
+                des: "Checkout en cuatro pasos con anticipo del 10%. Recibes confirmación y coordinamos todo por WhatsApp.",
+                desEn: "Four-step checkout with a 10% deposit. You get confirmation and we coordinate everything on WhatsApp.",
+              },
+            ].map((step) => (
+              <div className="numbered__item" key={step.n}>
+                <span className="numbered__num">{step.n}</span>
+                <span className="numbered__title">{t(step.es, step.en)}</span>
+                <p className="numbered__desc">{t(step.des, step.desEn)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <div className="page-tail">
         <section className="section">
           <div className="container">
