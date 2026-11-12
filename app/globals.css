@@ -5070,3 +5070,78 @@ html, body {
   }
   .dest-card:nth-child(n + 4) { display: flex; }
 }
+
+/* ==========================================================================
+   Paquetes: estética editorial, sin bordes redondeados
+   ========================================================================== */
+.pkg-side {
+  border-radius: 0;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.pkg-side__head {
+  border-radius: 0;
+  background: var(--ink-900);
+  padding: 18px 20px;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+.pkg-side__item {
+  border-radius: 0;
+  position: relative;
+  padding: 15px 20px;
+  font-size: 0.9375rem;
+  color: var(--ink-700);
+  transition: color 160ms var(--ease), background-color 160ms var(--ease);
+}
+.pkg-side__item:hover { background: var(--surface-2); }
+.pkg-side__item[aria-current="true"] {
+  background: transparent;
+  color: var(--ink-900);
+  font-weight: 700;
+}
+.pkg-side__item[aria-current="true"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--brand-accent);
+}
+.pkg-side__count {
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.pkg-side__item[aria-current="true"] .pkg-side__count { color: var(--brand-accent); }
+.pkg-side__note {
+  background: transparent;
+  border-top: 1px solid var(--line);
+  color: var(--ink-500);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  padding: 16px 20px 18px;
+}
+
+/* Filas: imagen y caja de precio sin radio, jerarquía por líneas */
+.pkg-row__media { border-radius: 0; }
+.pkg-row__buy {
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--ink-900);
+  padding: 16px 0 0;
+}
+.pkg-row__tag {
+  color: var(--brand-accent);
+  letter-spacing: 0.12em;
+}
+.pkg-row__cta { border-radius: 0; }
+.pkg-row__more { border-radius: 0; }
+
+@media (max-width: 759px) {
+  .pkg-row { border-radius: 0; }
+  .pkg-row__buy { border-top: 1px solid var(--line); }
+  .pkg-row__more { border-radius: 0; }
+}
