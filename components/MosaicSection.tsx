@@ -15,6 +15,13 @@ type Tile = {
   fallback: string;
 };
 
+const IMGS: Record<string, string> = {
+  "chichen-itza-all-inclusive": "/img/mosaic/destinos.jpg",
+  "traslado-aeropuerto-zona-hotelera": "/img/mosaic/traslados.jpg",
+  "yate-jackie": "/img/mosaic/yates.jpg",
+  "jetski-1-hora": "/img/mosaic/experiencias.jpg",
+  "black-pass": "/img/mosaic/concierge.jpg",
+};
 const TILES: Tile[] = [
   {
     slug: "chichen-itza-all-inclusive",
@@ -77,7 +84,7 @@ export function MosaicSection() {
               href={tile.href}
               className={`mosaic__tile${tile.size === "lg" ? " mosaic__tile--lg" : ""}`}
             >
-              <img src={packagePhotos[tile.slug] ?? tile.fallback} alt="" loading="lazy" />
+              <img src={IMGS[tile.slug] ?? tile.fallback} alt="" loading="lazy" />
               <span className="mosaic__shade" aria-hidden="true" />
               <span className="mosaic__body">
                 <span className="mosaic__eyebrow">{t(tile.eyebrow, tile.eyebrowEn)}</span>
