@@ -5988,3 +5988,48 @@ html, body {
   .mosaic__tile { min-height: 220px; }
   .mosaic__tile--lg { min-height: 260px; }
 }
+
+/* Contenedor de búsqueda con las mismas esquinas cortadas de los botones */
+.hsearch {
+  border: 0;
+  border-radius: 0;
+  padding: 24px 30px 20px 34px;
+  clip-path: polygon(
+    26px 0,
+    100% 0,
+    100% calc(100% - 26px),
+    calc(100% - 26px) 100%,
+    0 100%,
+    0 26px
+  );
+  box-shadow: none;
+  filter: drop-shadow(0 20px 45px rgba(8, 8, 10, 0.22));
+}
+.hsearch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(150deg, rgba(216, 31, 38, 0.5), transparent 22%);
+  opacity: 0;
+  transition: opacity 300ms var(--ease);
+}
+.hsearch:hover::after { opacity: 1; }
+
+@media (max-width: 560px) {
+  .hsearch {
+    padding: 20px 18px 16px 22px;
+    clip-path: polygon(
+      18px 0,
+      100% 0,
+      100% calc(100% - 18px),
+      calc(100% - 18px) 100%,
+      0 100%,
+      0 18px
+    );
+  }
+}
+
+/* Ajustes finales del contenedor con muescas */
+.hsearch { position: relative; }
+.hsearch::after { content: none; }
