@@ -6537,3 +6537,16 @@ html, body {
   outline: 2px solid var(--brand-accent);
   outline-offset: -2px;
 }
+
+/* Más aire interno en las tarjetas de salidas */
+.voyage__body {
+  padding: 22px clamp(18px, 2vw, 26px) 24px;
+  gap: 12px;
+}
+.voyage__short { max-width: 46ch; }
+.voyage__meta { gap: 9px; }
+.voyage__foot { padding-top: 16px; }
+
+@media (max-width: 640px) {
+  .voyage__body { padding: 18px 18px 20px; }
+}
