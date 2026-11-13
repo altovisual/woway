@@ -9,11 +9,11 @@ import { VoyagesExplorer } from "@/components/VoyagesExplorer";
 import { MosaicSection } from "@/components/MosaicSection";
 import { RevealText } from "@/components/RevealText";
 import { HomeSearchBar } from "@/components/HomeSearchBar";
-import { CTABand, SectionHead, Stats } from "@/components/ui";
+import { CTABand, SectionHead } from "@/components/ui";
 import { useLang } from "@/components/lang/LangProvider";
 import { heroPhoto, packagePhotos, partnerLogos, productPhotos, productTints } from "@/content/media";
 import { enProducts } from "@/content/i18n-data";
-import { collections, destinations, faq, finalCta, hero, packagesTeaser, pillars, rewardsTeaser, statement, stats, testimonials } from "@/content/home";
+import { collections, destinations, faq, finalCta, hero, packagesTeaser, pillars, rewardsTeaser, statement, testimonials } from "@/content/home";
 import { formatMXN, products } from "@/content/shop";
 import { packages } from "@/content/packages";
 import { site } from "@/content/site";
@@ -287,12 +287,6 @@ export default function HomePage() {
                 ]
               : testimonials}
           />
-        </div>
-      </section>
-
-      <section className="section section--surface">
-        <div className="container">
-          <Stats items={stats} />
         </div>
       </section>
 
