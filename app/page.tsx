@@ -59,7 +59,16 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="hero__bg" aria-hidden="true">
-          <img src={heroPhoto} alt="" />
+          <video
+            className="hero__video"
+            src="/video/hero-playa.mp4"
+            poster={heroPhoto}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
         </div>
         <div className="hero__wordmark" aria-hidden="true">
           <img src="/brand/woway_logotipo.svg" alt="" />

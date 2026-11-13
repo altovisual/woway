@@ -6142,3 +6142,30 @@ html, body {
     0 var(--notch)
   );
 }
+
+/* ==========================================================================
+   Hero con video de fondo
+   ========================================================================== */
+.hero__bg { overflow: hidden; }
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  display: block;
+}
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 8, 10, 0.55) 0%, rgba(8, 8, 10, 0.35) 45%, rgba(26, 4, 5, 0.85) 100%),
+    radial-gradient(120% 90% at 50% 0%, rgba(216, 31, 38, 0.25), transparent 60%);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__video { display: none; }
+  .hero__bg { background: var(--hero-gradient); }
+}
