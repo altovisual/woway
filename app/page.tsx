@@ -5,7 +5,7 @@ import { Icon } from "@/components/Icon";
 import { FAQ } from "@/components/FAQ";
 import { Testimonials } from "@/components/Testimonials";
 import { Marquee } from "@/components/Marquee";
-import { HeroDestinations } from "@/components/HeroDestinations";
+import { VoyagesExplorer } from "@/components/VoyagesExplorer";
 import { MosaicSection } from "@/components/MosaicSection";
 import { RevealText } from "@/components/RevealText";
 import { HomeSearchBar } from "@/components/HomeSearchBar";
@@ -98,7 +98,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <HeroDestinations />
+      <VoyagesExplorer />
 
       <section>
         <Marquee

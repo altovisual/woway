@@ -6269,3 +6269,184 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .float-contact { transition: none; }
 }
+
+/* ==========================================================================
+   Explorador de salidas (inspirado en Four Seasons Yachts)
+   ========================================================================== */
+.voyages {
+  background: #fbf8f3;
+  padding-block: clamp(3rem, 2rem + 4vw, 5.5rem) clamp(2.5rem, 2rem + 3vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+.voyages__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 1.4rem + 2.4vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 20ch;
+  margin: 0 auto clamp(1.8rem, 1.2rem + 2vw, 3rem);
+}
+.voyages__controls {
+  display: grid;
+  gap: 18px 28px;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+.voyages__field { display: grid; gap: 8px; min-width: 0; }
+.voyages__field > span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+.voyages__control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--ink-900);
+  padding: 8px 2px;
+  color: var(--ink-900);
+}
+.voyages__control select {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-900);
+  appearance: none;
+  cursor: pointer;
+}
+.voyages__control svg { flex: none; color: var(--ink-500); }
+.voyages__all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 26px;
+  border: 1px solid var(--ink-900);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  white-space: nowrap;
+  transition: background-color 200ms var(--ease), color 200ms var(--ease);
+}
+.voyages__all:hover { background: var(--ink-900); color: #fff; }
+.voyages__nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.voyages__nav button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink-900);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  --notch: 8px;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  transition: background-color 180ms var(--ease), color 180ms var(--ease);
+}
+.voyages__nav button:hover { background: var(--ink-900); color: #fff; }
+
+.voyages__rail {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 6px;
+}
+.voyages__rail::-webkit-scrollbar { display: none; }
+.voyage {
+  flex: 0 0 calc((100% - 36px) / 3);
+  scroll-snap-align: start;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.voyage__media { position: relative; display: block; aspect-ratio: 16 / 11; overflow: hidden; }
+.voyage__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease); }
+.voyage:hover .voyage__media img { transform: scale(1.04); }
+.voyage__fav {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: rgba(251, 248, 243, 0.9);
+  color: var(--ink-800);
+  cursor: pointer;
+  transition: background-color 180ms var(--ease), color 180ms var(--ease);
+}
+.voyage__fav.is-on { color: var(--brand-accent); }
+.voyage__fav:hover { background: #fff; }
+.voyage__body { padding: 20px 4px 22px; display: grid; gap: 10px; flex: 1; }
+.voyage__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.voyage__name a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.voyage__short { font-size: 0.85rem; color: var(--ink-500); line-height: 1.5; }
+.voyage__meta { display: grid; gap: 7px; margin-top: 2px; }
+.voyage__meta li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--ink-700);
+}
+.voyage__meta svg { color: var(--ink-500); flex: none; }
+.voyage__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.voyage__price { font-weight: 700; font-size: 0.95rem; }
+.voyage__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+.voyage__cta:hover { text-decoration: underline; text-underline-offset: 3px; }
+.voyages__empty { padding: 40px 0; color: var(--ink-500); }
+
+@media (max-width: 900px) {
+  .voyages__controls { grid-template-columns: 1fr 1fr; }
+  .voyages__all { grid-column: 1 / -1; }
+  .voyage { flex-basis: calc((100% - 18px) / 2); }
+}
+@media (max-width: 640px) {
+  .voyages__controls { grid-template-columns: 1fr; }
+  .voyage { flex-basis: 82%; }
+  .voyages__nav { display: none; }
+}
