@@ -6601,3 +6601,39 @@ html, body {
   .header__inner > .logo { width: 130px; }
   .header__inner > .logo .logo__img { height: 22px; }
 }
+
+/* Mega menú con el sistema de esquinas cortadas, igual que el resto del sitio */
+.mega {
+  border-radius: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 26px 55px rgba(8, 8, 10, 0.22));
+  clip-path: polygon(
+    22px 0,
+    100% 0,
+    100% calc(100% - 22px),
+    calc(100% - 22px) 100%,
+    0 100%,
+    0 22px
+  );
+}
+.mega__promo {
+  border-radius: 0;
+  clip-path: polygon(
+    16px 0,
+    100% 0,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0 100%,
+    0 16px
+  );
+}
+.mega__item,
+.mega__promo-cta,
+.mega__section {
+  border-radius: 0;
+}
+.mega__item:hover { background: var(--surface-2); }
+
+@media (max-width: 1180px) {
+  .mega { clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px); }
+}
