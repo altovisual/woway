@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Icon } from "./Icon";
 import { DatePicker } from "./DatePicker";
+import { useLang } from "./lang/LangProvider";
 
 const ZONES = ["Cancún Zona Hotelera", "Costa Mujeres", "Playa del Carmen", "Tulum"];
 const EXPERIENCES = ["Todas", "Jetski & Lagoon", "Lancha/Yate Privado", "Cenotes & Aventura", "Nightlife"];
@@ -11,6 +12,7 @@ const SIZES = ["S", "M", "L", "XL"];
 
 export function HomeSearchBar() {
   const router = useRouter();
+  const { t } = useLang();
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [zone, setZone] = useState(ZONES[0]);
