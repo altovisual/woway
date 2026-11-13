@@ -6033,3 +6033,112 @@ html, body {
 /* Ajustes finales del contenedor con muescas */
 .hsearch { position: relative; }
 .hsearch::after { content: none; }
+
+/* ==========================================================================
+   Sistema de esquinas cortadas: sustituye los border-radius del sitio
+   ========================================================================== */
+.card,
+.dest-card,
+.cta-band,
+.trip-card,
+.product-card,
+.shop-card,
+.chip,
+.pkg-row__media,
+.dp__trigger,
+.dp__pop,
+.dp__day,
+.dp__nav,
+.hsearch__stepper,
+.hsearch__size,
+.lux-btn,
+.lux-field input,
+.lux-field select,
+.smart-hero__card,
+.trip-login__card,
+.trip__flightbar,
+.trip__peace,
+.trip__day,
+.trip__event,
+.trip__free,
+.trip-drawer__panel,
+.trip-drawer__qr,
+.flights__form,
+.flight__code,
+.icon-btn,
+.tag {
+  border-radius: 0;
+}
+
+.card,
+.dest-card,
+.cta-band,
+.trip-card,
+.product-card,
+.shop-card,
+.pkg-row__media {
+  --notch: 18px;
+  clip-path: polygon(
+    var(--notch) 0,
+    100% 0,
+    100% calc(100% - var(--notch)),
+    calc(100% - var(--notch)) 100%,
+    0 100%,
+    0 var(--notch)
+  );
+  box-shadow: none;
+  filter: drop-shadow(0 14px 30px rgba(8, 8, 10, 0.14));
+}
+
+.chip,
+.dp__day,
+.dp__nav,
+.hsearch__size,
+.tag,
+.icon-btn {
+  --notch: 8px;
+  clip-path: polygon(
+    var(--notch) 0,
+    100% 0,
+    100% calc(100% - var(--notch)),
+    calc(100% - var(--notch)) 100%,
+    0 100%,
+    0 var(--notch)
+  );
+}
+
+.dp__trigger,
+.dp__pop,
+.trip-login__card,
+.smart-hero__card,
+.flights__form {
+  --notch: 14px;
+  clip-path: polygon(
+    var(--notch) 0,
+    100% 0,
+    100% calc(100% - var(--notch)),
+    calc(100% - var(--notch)) 100%,
+    0 100%,
+    0 var(--notch)
+  );
+}
+
+.lux-btn,
+.lux-field input,
+.lux-field select,
+.trip__event,
+.trip__free,
+.trip__day,
+.trip__peace,
+.trip__flightbar,
+.flight__code {
+  --notch: 10px;
+  clip-path: polygon(
+    var(--notch) 0,
+    100% 0,
+    100% calc(100% - var(--notch)),
+    calc(100% - var(--notch)) 100%,
+    0 100%,
+    0 var(--notch)
+  );
+}
