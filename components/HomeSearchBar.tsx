@@ -44,6 +44,15 @@ export function HomeSearchBar() {
 
   return (
     <form className="hsearch" onSubmit={submit} aria-label="Buscar paquetes por fechas">
+      <div className="hsearch__head">
+        <span className="hsearch__eyebrow">{t("Buscar", "Search")}</span>
+        <p className="hsearch__title">
+          {t("Encuentra tu paquete ideal", "Find your ideal package")}
+        </p>
+        <span className="hsearch__sub">
+          {t("Fechas, zona y viajeros", "Dates, area and travellers")}
+        </span>
+      </div>
       <div className="hsearch__row">
         <div className="hsearch__field">
           <span>Llegada</span>
