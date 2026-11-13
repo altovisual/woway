@@ -6579,3 +6579,11 @@ html, body {
 @media (prefers-reduced-transparency: reduce) {
   .mosaic__tile img { filter: brightness(0.82) contrast(1.08); }
 }
+
+/* El video entra con fundido: nunca se ve una imagen distinta antes */
+.hero__bg { background: var(--hero-gradient); }
+.hero__video {
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.hero__video.is-ready { opacity: 1; }

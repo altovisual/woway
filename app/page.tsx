@@ -6,6 +6,7 @@ import { FAQ } from "@/components/FAQ";
 import { Testimonials } from "@/components/Testimonials";
 import { Marquee } from "@/components/Marquee";
 import { VoyagesExplorer } from "@/components/VoyagesExplorer";
+import { HeroVideo } from "@/components/HeroVideo";
 import { MosaicSection } from "@/components/MosaicSection";
 import { RevealText } from "@/components/RevealText";
 import { HomeSearchBar } from "@/components/HomeSearchBar";
@@ -59,16 +60,7 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="hero__bg" aria-hidden="true">
-          <video
-            className="hero__video"
-            src="/video/hero-playa.mp4"
-            poster={heroPhoto}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
+<HeroVideo />
         </div>
         <div className="hero__wordmark" aria-hidden="true">
           <img src="/brand/woway_logotipo.svg" alt="" />
