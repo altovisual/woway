@@ -112,8 +112,8 @@ export function Header({ overHero }: { overHero?: boolean }) {
     >
       <div className="container header__inner">
         <Link href="/" className="logo" aria-label={`${site.brandName} inicio`}>
-          <img src="/brand/woway_isologo.svg" alt="WoWay Black" className="logo__img logo__img--onLight" />
-          <img src="/brand/woway_isologo.svg" alt="" aria-hidden="true" className="logo__img logo__img--onDark" />
+          <img src="/brand/woway_logotipo.svg" alt="WoWay" className="logo__img logo__img--onLight" />
+          <img src="/brand/woway_logotipo.svg" alt="" aria-hidden="true" className="logo__img logo__img--onDark" />
         </Link>
 
         <nav className="nav" aria-label="Principal">
