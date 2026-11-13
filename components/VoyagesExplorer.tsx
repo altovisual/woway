@@ -7,6 +7,7 @@ import { packagePhotos } from "@/content/media";
 import { Icon } from "./Icon";
 import { useLang } from "./lang/LangProvider";
 import { EN_PACKAGES } from "@/content/en-catalog";
+import { VoyagesSelect } from "./VoyagesSelect";
 
 const mxn = (v: number) =>
   new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 }).format(v);
@@ -78,36 +79,26 @@ export function VoyagesExplorer() {
           <label className="voyages__field">
             <span>{t("Destino", "Destination")}</span>
             <div className="voyages__control">
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3C9.5 5.6 9.5 18.4 12 21" />
-              </svg>
-              <select value={destino} onChange={(e) => setDestino(e.target.value)}>
-                {DESTINOS.map((d) => (
-                  <option key={d.id} value={d.id}>
-                    {t(d.es, d.en)}
-                  </option>
-                ))}
-              </select>
-              <Icon name="chevron" size={14} />
+              <VoyagesSelect
+                value={destino}
+                onChange={setDestino}
+                options={DESTINOS}
+                icon="globe"
+                label={t("Destino", "Destination")}
+              />
             </div>
           </label>
 
           <label className="voyages__field">
             <span>{t("Presupuesto", "Budget")}</span>
             <div className="voyages__control">
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <rect x="3" y="5" width="18" height="16" rx="1.5" />
-                <path d="M3 10h18M8 3v4M16 3v4" />
-              </svg>
-              <select value={presupuesto} onChange={(e) => setPresupuesto(e.target.value)}>
-                {PRESUPUESTOS.map((d) => (
-                  <option key={d.id} value={d.id}>
-                    {t(d.es, d.en)}
-                  </option>
-                ))}
-              </select>
-              <Icon name="chevron" size={14} />
+              <VoyagesSelect
+                value={presupuesto}
+                onChange={setPresupuesto}
+                options={PRESUPUESTOS}
+                icon="calendar"
+                label={t("Presupuesto", "Budget")}
+              />
             </div>
           </label>
 
