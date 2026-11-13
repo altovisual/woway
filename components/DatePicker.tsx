@@ -96,7 +96,8 @@ export function DatePicker({
     return cells;
   }, [cursor]);
 
-  const minDate = parseISO(min ?? "");
+  // Sin fecha mínima explícita, el calendario nunca permite días pasados.
+  const minDate = parseISO(min || toISO(new Date()));
   const selected = parseISO(value);
   const today = new Date();
   const shown = selected ? `${pad(selected.getDate())}/${pad(selected.getMonth() + 1)}/${selected.getFullYear()}` : "";
