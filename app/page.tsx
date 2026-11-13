@@ -6,6 +6,7 @@ import { FAQ } from "@/components/FAQ";
 import { Testimonials } from "@/components/Testimonials";
 import { Marquee } from "@/components/Marquee";
 import { HeroDestinations } from "@/components/HeroDestinations";
+import { MosaicSection } from "@/components/MosaicSection";
 import { RevealText } from "@/components/RevealText";
 import { HomeSearchBar } from "@/components/HomeSearchBar";
 import { CTABand, SectionHead, Stats } from "@/components/ui";
@@ -107,24 +108,7 @@ export default function HomePage() {
         <Marquee items={destinations.map((d) => ({ label: d }))} label={t("Destinos", "Destinations")} />
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="grid grid--4">
-            {pillars.map((p) => {
-              const e = PILLAR_EN[p.title];
-              return (
-                <article className="card card--hover" key={p.title}>
-                  <span className="card__icon">
-                    <img src={PILLAR_ICONS[p.title] ?? "/icons/woway_icon_07_esenciales.svg"} alt="" />
-                  </span>
-                  <h3 className="card__title">{t(p.title, e?.[0] ?? p.title)}</h3>
-                  <p className="card__body">{t(p.body, e?.[1] ?? p.body)}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <MosaicSection />
 
       <section className="section">
         <div className="container">

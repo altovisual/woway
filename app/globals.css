@@ -5906,3 +5906,85 @@ html, body {
 @media (max-width: 560px) {
   .flights__row { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   Mosaico editorial (sustituye a los pilares)
+   ========================================================================== */
+.mosaic {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  grid-template-rows: repeat(2, minmax(210px, 1fr));
+  gap: 12px;
+}
+.mosaic__tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--ink-900);
+  min-height: 220px;
+  isolation: isolate;
+}
+.mosaic__tile--lg {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+  min-height: 452px;
+}
+.mosaic__tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--ease);
+}
+.mosaic__tile:hover img { transform: scale(1.04); }
+.mosaic__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 8, 10, 0.55) 0%, rgba(8, 8, 10, 0) 38%, rgba(8, 8, 10, 0.62) 100%);
+  transition: opacity 400ms var(--ease);
+}
+.mosaic__tile:hover .mosaic__shade { opacity: 0.85; }
+.mosaic__body {
+  position: absolute;
+  inset: 0 auto auto 0;
+  padding: clamp(16px, 2vw, 26px);
+  display: grid;
+  gap: 6px;
+  color: #fff;
+}
+.mosaic__eyebrow {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+.mosaic__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 0.9rem + 1vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+.mosaic__tile--lg .mosaic__title { font-size: clamp(1.5rem, 1rem + 2vw, 2.6rem); max-width: 14ch; }
+
+@media (max-width: 900px) {
+  .mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .mosaic__tile--lg {
+    grid-row: auto;
+    grid-column: 1 / -1;
+    min-height: 300px;
+  }
+  .mosaic__tile { min-height: 190px; }
+}
+@media (max-width: 560px) {
+  .mosaic { grid-template-columns: 1fr; }
+  .mosaic__tile { min-height: 220px; }
+  .mosaic__tile--lg { min-height: 260px; }
+}
